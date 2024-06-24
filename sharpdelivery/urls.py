@@ -15,8 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from customers import views as customer_views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('delivery.urls')),
+    path('register/', customer_views.register, name='customers_register'),
+    path('login/', auth_views.LoginView.as_view(template_name='customers/login.html'), name='customers_login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='customers/logout.html'), name='logout'),
+    path('profile/', customer_views.profile, name='profile'),
+    path('update_account/', customer_views.update_account, name='update_account'),
+    path('confirm_logout/', customer_views.confirm_logout, name='confirm_logout'),
+    # path('account_activation_sent/', customer_views.account_activation_sent, name='account_activation_sent' ),
+    # path('account_activation_successful/', customer_views.account_activation_successful, name='account_activation_successful'),
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name='customers/password_reset.html'), name='password_reset'),
+    path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(template_name='customers/password_reset_done.html'), name='password_reset_done'),
+    path('password_reset_confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='customers/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('password_reset_complete', auth_views.PasswordResetCompleteView.as_view(template_name='customers/password_reset_complete.html'), name='password_reset_complete.html'),
+    
+    path('orders/<int:order_id>/', customer_views.order_detail, name='order_detail'),
+    path('track/<str:tracking_number>/', customer_views.track_order, name='track_order'),
+    path('orders/', customer_views.OrderListView.as_view(), name='customer_order_list'),
+    #path('orders/', customer_views.order_list, name='order_list'),
 ]

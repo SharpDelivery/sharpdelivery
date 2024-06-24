@@ -1,9 +1,9 @@
 from django.shortcuts import render
-# from .forms import ReviewsForm
-# from .models import Reviews
-# from customers.models import Customer
+from .forms import ReviewsForm
+from .models import Reviews
+from customers.models import Customer
 from django.contrib import messages
-# Create your views here.
+#Create your views here.
 
 def home(request):
     return render(request, 'delivery/home.html')
@@ -29,21 +29,21 @@ def get_client_host(request):
     return host_name
 
 def contact(request):
-    # if request.method == 'POST':
-    #     form = ReviewsForm(request.POST)
-    #     if form.is_valid():
-    #         ip_address = get_client_ip(request)
-    #         name = form.cleaned_data.get('name')
-    #         email = form.cleaned_data.get('email')
-    #         subject = form.cleaned_data.get('subject')
-    #         message = form.cleaned_data.get('message')
-    #         sender = Reviews(name=name, email=email, subject=subject, message=message, ip_address=ip_address)
-    #         sender.save()
-    #         messages.success(request, 'Your review has been submitted successfully.')
+    if request.method == 'POST':
+        form = ReviewsForm(request.POST)
+        if form.is_valid():
+            ip_address = get_client_ip(request)
+            name = form.cleaned_data.get('name')
+            email = form.cleaned_data.get('email')
+            subject = form.cleaned_data.get('subject')
+            message = form.cleaned_data.get('message')
+            sender = Reviews(name=name, email=email, subject=subject, message=message, ip_address=ip_address)
+            sender.save()
+            messages.success(request, 'Your review has been submitted successfully.')
             
-    # else:
-    #     form = ReviewsForm()
-    # context = {'form' : form}
+    else:
+        form = ReviewsForm()
+    context = {'form' : form}
     return render(request, 'delivery/contact.html')
 
 def price(request):

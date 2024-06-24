@@ -80,7 +80,15 @@
                             <a href="{% url 'single' %}" class="dropdown-item">Blog Detail</a>
                         </div>
                     </div>
-                    
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}" class="nav-item nav-link">Profile</a>
+                        <a href="{% url 'confirm_logout' %}" class="nav-item nav-link">Logout</a>
+                        <a href="{% url 'customer_order_list' %}" class="nav-item nav-link">Order List</a>
+                    {% else %}
+                        <a href="{% url 'customers_register' %}" class="nav-item nav-link">Register</a>
+                        <a href="{% url 'customers_login' %}" class="nav-item nav-link">Login</a>
+                    {% endif %}
                 </div>
                 <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Get A Quote</a>
             </div>

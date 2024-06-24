@@ -1,0 +1,41 @@
+{% extends 'delivery/base.html' %}
+{% load static from static %}
+{% block content %}
+    <style>
+        .other-details{
+            color: chartreuse;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size:p0px;
+            font-weight: 500;
+        }
+        h2{
+            color: burlywood;
+        }
+    </style>
+    <div class="jumbotron">
+        <div class="user-details">
+            <div class="other-details">
+                <p>{{ user.first_name }} {{ user.last_name }}</p>
+                <p>Email : {{ user.email }}</p>
+                <p>Phonenumber : {{ user.phonenumber }}</p>
+                <p>Address : {{ user.delivery_address }}</p>
+            </div>
+            <button><a href="{% url 'update_account' %}">Update Account</a></button>
+        </div>
+        <br>
+        <h2>Track A Delivery</h2>
+        <div class="mx-auto" style="width: 100%; max-width: 600px;">
+            <div class="input-group">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        {{ form.as_p }}
+                    </fieldset>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary pxp" type="submit">Track & Trace</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
