@@ -1,0 +1,295 @@
+{% extends 'delivery/base.html' %}
+{% load static from static %}
+{% block content %}
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid mb-5">
+        <div class="container text-center py-5">
+            <h1 class="text-primary mb-4">Safe & Faster</h1>
+            <h1 class="text-white display-3 mb-5">Logistics Services</h1>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 pb-4 pb-lg-0">
+                    <img class="img-fluid w-100" src="{% static 'delivery/about.jpg' %}" alt="Image">
+                    <div class="bg-primary text-dark text-center p-4">
+                        <h3 class="m-0">25+ Years Experience</h3>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <h6 class="text-primary text-uppercase font-weight-bold">About Us</h6>
+                    <h1 class="mb-4">Trusted & Faster Logistic Service Provider</h1>
+                    <p class="mb-4">We believe that trust is built on consistency and transparency. That’s why we offer real-time tracking, ensuring you are always informed about the status of your deliveries. Our customer support is always ready to assist you, ensuring peace of mind throughout the delivery process.
+
+                        At Sharp Delivery, we are not just delivering packages; we are delivering trust and excellence.</p>
+                    <div class="d-flex align-items-center pt-2">
+                        <button type="button" class="btn-play" data-toggle="modal"
+                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
+                            <span></span>
+                        </button>
+                        <h5 class="font-weight-bold m-0 ml-4">Play Video</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Video Modal -->
+        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>        
+                        <!-- 16:9 aspect ratio -->
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!--  Quote Request Start -->
+    <div class="container-fluid bg-secondary my-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 py-5 py-lg-0">
+                    <h6 class="text-primary text-uppercase font-weight-bold">Get A Quote</h6>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h1 class="text-primary mb-2" data-toggle="counter-up">225</h1>
+                            <h6 class="font-weight-bold mb-4">SKilled Experts</h6>
+                        </div>
+                        <div class="col-sm-4">
+                            <h1 class="text-primary mb-2" data-toggle="counter-up">1050</h1>
+                            <h6 class="font-weight-bold mb-4">Happy Clients</h6>
+                        </div>
+                        <div class="col-sm-4">
+                            <h1 class="text-primary mb-2" data-toggle="counter-up">2500</h1>
+                            <h6 class="font-weight-bold mb-4">Complete Projects</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quote Request Start -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Our Services</h6>
+                <h1 class="mb-4">Best Logistic Services</h1>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                        <i class="fa fa-2x fa-plane text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0">Air Freight</h6>
+                    </div>
+                    <p>At Sharp Delivery, our Air Freight services epitomize speed and reliability, ensuring your goods reach their destination swiftly and securely. Leveraging an extensive global network and advanced tracking technology, we offer seamless, door-to-door delivery with guaranteed punctuality. Our dedicated team of logistics professionals handles every shipment with precision and care, making us the trusted choice for businesses that require urgent and dependable air transport solutions. With Sharp Delivery, your cargo is always in safe and capable hands, reaching you faster than ever before.</p>
+                    <a class="border-bottom text-decoration-none" href="">Read More</a>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                        <i class="fa fa-2x fa-ship text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0">Ocean Freight</h6>
+                    </div>
+                    <p>At Sharp Delivery, our Ocean Freight services provide a cost-effective and reliable solution for transporting large volumes of goods across the globe. With a robust network of shipping partners and state-of-the-art tracking systems, we ensure your cargo is handled with the utmost care from port to port. Our dedicated team coordinates every detail, offering flexible schedules and personalized service to meet your unique shipping needs. Trust Sharp Delivery to deliver your goods safely and efficiently, no matter the distance.</p>
+                    <a class="border-bottom text-decoration-none" href="">Read More</a>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                        <i class="fa fa-2x fa-truck text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0">Land Transport</h6>
+                    </div>
+                    <p>At Sharp Delivery, our Land Transport services offer dependable and efficient solutions for your logistics needs. Utilizing a vast fleet of modern vehicles and a well-established network of routes, we ensure timely and secure delivery of your goods. Our experienced team meticulously plans every detail, providing flexible and tailored transportation options to meet your specific requirements. </p>
+                    <a class="border-bottom text-decoration-none" href="">Read More</a>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center mb-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                        <i class="fa fa-2x fa-store text-dark pr-3"></i>
+                        <h6 class="text-white font-weight-medium m-0">Cargo Storage</h6>
+                    </div>
+                    <p>At Sharp Delivery, our Cargo Storage solutions are designed to provide you with secure, flexible, and efficient storage options for your goods. Our state-of-the-art facilities are equipped with advanced security systems and climate control to ensure the optimal condition of your cargo. Whether you need short-term storage during transit or long-term warehousing, our dedicated team offers tailored solutions to meet your specific needs. With Sharp Delivery, you can have peace of mind knowing that your goods are stored safely and managed with the highest standards of care and professionalism.</p>
+                    <a class="border-bottom text-decoration-none" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Features Start -->
+    <div class="container-fluid bg-secondary my-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid w-100" src="{% static 'delivery/img/feature.jpg' %}" alt="">
+                </div>
+                <div class="col-lg-7 py-5 py-lg-0">
+                    <h6 class="text-primary text-uppercase font-weight-bold">Why Choose Us</h6>
+                    <h1 class="mb-4">Faster, Safe and Trusted Logistics Services</h1>
+                    <p class="mb-4">At Sharp Delivery, we pride ourselves on providing faster, safe, and trusted delivery services. Our commitment to speed ensures that your packages arrive on time, every time. We prioritize the safety of your goods with robust handling and tracking systems, giving you peace of mind throughout the delivery process. With a reputation built on reliability and excellence, Sharp Delivery is your go-to partner for all your delivery needs, ensuring your cargo reaches its destination quickly and securely.</p>
+                    <ul class="list-inline">
+                        <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>Best In Industry</h6>
+                        <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>Emergency Services</h6></li>
+                        <li><h6><i class="far fa-dot-circle text-primary mr-3"></i>24/7 Customer Support</h6></li>
+                    </ul>
+                    <a href="" class="btn btn-primary mt-3 py-2 px-4">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Features End -->            
+
+
+    <!-- Team Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Delivery Team</h6>
+                <h1 class="mb-4">Meet Our Delivery Team</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team card position-relative overflow-hidden border-0 mb-5">
+                        <img class="card-img-top" src="{% static 'delivery/img/team-1.jpg' %}" alt="">
+                        <div class="card-body text-center p-0">
+                            <div class="team-text d-flex flex-column justify-content-center bg-secondary">
+                                <h5 class="font-weight-bold">Full Name</h5>
+                                <span>Designation</span>
+                            </div>
+                            <div class="team-social d-flex align-items-center justify-content-center bg-primary">
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team card position-relative overflow-hidden border-0 mb-5">
+                        <img class="card-img-top" src="{% static 'delivery/img/team-1.jpg' %}" alt="">
+                        <div class="card-body text-center p-0">
+                            <div class="team-text d-flex flex-column justify-content-center bg-secondary">
+                                <h5 class="font-weight-bold">Full Name</h5>
+                                <span>Designation</span>
+                            </div>
+                            <div class="team-social d-flex align-items-center justify-content-center bg-primary">
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team card position-relative overflow-hidden border-0 mb-5">
+                        <img class="card-img-top" src="{% static 'delivery/img/team-3.jpg' %}" alt="">
+                        <div class="card-body text-center p-0">
+                            <div class="team-text d-flex flex-column justify-content-center bg-secondary">
+                                <h5 class="font-weight-bold">Full Name</h5>
+                                <span>Designation</span>
+                            </div>
+                            <div class="team-social d-flex align-items-center justify-content-center bg-primary">
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team card position-relative overflow-hidden border-0 mb-5">
+                        <img class="card-img-top" src="{% static 'delivery/img/team-4.jpg' %}" alt="">
+                        <div class="card-body text-center p-0">
+                            <div class="team-text d-flex flex-column justify-content-center bg-secondary">
+                                <h5 class="font-weight-bold">Full Name</h5>
+                                <span>Designation</span>
+                            </div>
+                            <div class="team-social d-flex align-items-center justify-content-center bg-primary">
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-dark btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-outline-dark btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <h6 class="text-primary text-uppercase font-weight-bold">Testimonial</h6>
+                <h1 class="mb-4">Our Clients Say</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="position-relative bg-secondary p-4">
+                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid rounded-circle" src="{% static 'delivery/img/testimonial-1.jpg' %}" style="width: 60px; height: 60px;" alt="">
+                        <div class="ml-3">
+                            <h6 class="font-weight-semi-bold m-0">John S.</h6>
+                            <small>- Lawyer</small>
+                        </div>
+                    </div>
+                    <p class="m-0">"Incredible service! My package arrived faster than expected, and the tracking updates kept me informed every step of the way. Highly recommend!"</p>
+                </div>
+                <div class="position-relative bg-secondary p-4">
+                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid rounded-circle" src="{% static 'delivery/img/testimonial-2.jpg' %}" style="width: 60px; height: 60px;" alt="">
+                        <div class="ml-3">
+                            <h6 class="font-weight-semi-bold m-0">Emily R.</h6>
+                            <small>- Doctor</small>
+                        </div>
+                    </div>
+                    <p class="m-0">"Absolutely reliable! I’ve never had any issues with delays or damaged goods. Their commitment to safety and speed is unmatched."</p>
+                </div>
+                <div class="position-relative bg-secondary p-4">
+                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid rounded-circle" src="{% static 'delivery/img/testimonial-3.jpg' %}" style="width: 60px; height: 60px;" alt="">
+                        <div class="ml-3">
+                            <h6 class="font-weight-semi-bold m-0">Michael T.</h6>
+                            <small>- Business Analyst</small>
+                        </div>
+                    </div>
+                    <p class="m-0">"Trustworthy and efficient! The delivery process was seamless, and I felt confident knowing my shipment was in good hands."</p>
+                </div>
+                <div class="position-relative bg-secondary p-4">
+                    <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid rounded-circle" src="{% static 'delivery/img/testimonial-4.jpg' %}" style="width: 60px; height: 60px;" alt="">
+                        <div class="ml-3">
+                            <h6 class="font-weight-semi-bold m-0">Sophia L.</h6>
+                            <small>- Receptionist</small>
+                        </div>
+                    </div>
+                    <p class="m-0"> "Outstanding experience! The customer support was very helpful, and my order was delivered safely and on time. Will definitely use their services again."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+{% endblock content %}
