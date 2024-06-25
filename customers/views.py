@@ -92,8 +92,8 @@ def track_order(request, tracking_number):
     order = get_object_or_404(DeliveryOrder, tracking_number=tracking_number)
     tracking_info = OrderTracking.objects.filter(order=order)
     tracking_data = [{'status': t.status, 'location': t.location, 'timestamp': t.timestamp} for t in tracking_info]
-    m = folium.Map(location=[45.5236, -122.6750], zoom_start=13)
-    folium.Marker([45.5236, -122.6750], popup='My point').add_to(m)
+    m = folium.Map(location=[6.5244, 3.3792], zoom_start=13)
+    folium.Marker([6.5244, 3.3792], popup='My point').add_to(m)
     return render(request, 'customers/map.html', {'map':m.show_in_browser()})
 
 class OrderListView(ListView, LoginRequiredMixin):
@@ -105,7 +105,13 @@ class OrderListView(ListView, LoginRequiredMixin):
         return DeliveryOrder.objects.filter(customer=self.request.user).all()
     
 
+
 def map_view(request):
-    m = folium.Map(location=[45.5236, -122.6750], zoom_start=13)
-    folium.Marker([45.5236, -122.6750], popup='My point').add_to(m)
-    return render(request, 'customers/map.html', {'map':m.show_in_browser()})
+    cordinates = [6.9244, 3.3792]
+    m = folium.Map(location=cordinates, zoom_start=13)
+    folium.Marker(cordinates, popup='My point').add_to(m)
+    map_html = m._repr_html_()
+    context = {
+        'map': map_html,
+    }
+    return render(request, 'customers/map.html', context)
