@@ -13,6 +13,7 @@ from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from django.contrib import messages
+import folium
 
 # Create your views here.
 
@@ -61,7 +62,7 @@ def update_account(request):
         form = CustomerUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your account informations has been successfully updated')
+            messages.success(request, 'Your account information has been successfully updated')
     else:
         form = CustomerUpdateForm(instance=request.user)
     return render(request, 'customers/update_account.html', {'form':form})
@@ -91,8 +92,9 @@ def track_order(request, tracking_number):
     order = get_object_or_404(DeliveryOrder, tracking_number=tracking_number)
     tracking_info = OrderTracking.objects.filter(order=order)
     tracking_data = [{'status': t.status, 'location': t.location, 'timestamp': t.timestamp} for t in tracking_info]
-    return JsonResponse({'order': order.id, 'tracking_number': order.tracking_number, 'status': order.status, 'tracking_info': tracking_data})
-
+    m = folium.Map(location=[45.5236, -122.6750], zoom_start=13)
+    folium.Marker([45.5236, -122.6750], popup='My point').add_to(m)
+    return render(request, 'customers/map.html', {'map':m.show_in_browser()})
 
 class OrderListView(ListView, LoginRequiredMixin):
     models = DeliveryOrder
@@ -101,3 +103,9 @@ class OrderListView(ListView, LoginRequiredMixin):
 
     def get_queryset(self):
         return DeliveryOrder.objects.filter(customer=self.request.user).all()
+    
+
+def map_view(request):
+    m = folium.Map(location=[45.5236, -122.6750], zoom_start=13)
+    folium.Marker([45.5236, -122.6750], popup='My point').add_to(m)
+    return render(request, 'customers/map.html', {'map':m.show_in_browser()})

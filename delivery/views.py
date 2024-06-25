@@ -1,12 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ReviewsForm
 from .models import Reviews
-from customers.models import Customer
+from customers.models import Customer, DeliveryOrder
 from django.contrib import messages
+from customers.forms import OrderTrackingForm
 #Create your views here.
 
 def home(request):
-    return render(request, 'delivery/home.html')
+    if request.method == 'POST':
+        form = OrderTrackingForm(request.POST)
+        if form.is_valid():
+            tracking_number = form.cleaned_data.get('tracking_number')
+            order = DeliveryOrder.objects.filter(tracking_number=tracking_number).first()
+            if order:
+                return redirect('map')
+            else:
+                messages.error(request, f'There is no order with {tracking_number}')
+    else:
+        form = OrderTrackingForm()
+    context = {'form':form}
+    return render(request, 'delivery/home.html', context=context)
 
 def about(request):
     return render(request, 'delivery/about.html')

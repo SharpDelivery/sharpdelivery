@@ -38,4 +38,6 @@ urlpatterns = [
     path('track/<str:tracking_number>/', customer_views.track_order, name='track_order'),
     path('orders/', customer_views.OrderListView.as_view(), name='customer_order_list'),
     #path('orders/', customer_views.order_list, name='order_list'),
+
+    path('map/', customer_views.map_view, name='map'),
 ]

@@ -77,3 +77,5 @@ class OrderTracking(models.Model):
 
     def __str__(self):
         return f'Tracking {self.id} for Order {self.order.id}'
+    
+

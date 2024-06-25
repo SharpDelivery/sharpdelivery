@@ -10,6 +10,20 @@
     </div>
     <!-- Header End -->
 
+    <h2>Track A Delivery</h2>
+        <div class="mx-auto" style="width: 100%; max-width: 600px;">
+            <div class="input-group">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        {{ form.as_p }}
+                    </fieldset>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary pxp" type="submit">Track & Trace</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     <!-- About Start -->
     <div class="container-fluid py-5">
