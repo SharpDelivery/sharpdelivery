@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fdj bvayw985 bvwrhuiabva4w0 yr9vuer0[97re980-7430984]'
+SECRET_KEY = 'fdj bvayw985 bvwrhuiabva4w0 yr9vuer097re980-7430984]'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False).lower() == "true"
@@ -87,7 +87,7 @@ DATABASES = {
     }
 }
 
-database_url = os.environ.get("SHARP_DELIVERY_DATABASE_URL")
+database_url = 'postgresql://sharpdelivery_user:cXihVFPHiRWJjrlFzbmMNPHpuSRWYwt7@dpg-cpsiun2j1k6c738o5ocg-a.oregon-postgres.render.com/sharpdelivery'
 DATABASES['default'] = dj_database_url.parse(database_url)
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
