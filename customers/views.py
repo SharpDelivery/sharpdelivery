@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Customer, DeliveryOrder, OrderTracking
+from .models import Customer
+from delivery.models import DeliveryOrder
 from django.shortcuts import render, redirect
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
@@ -83,19 +84,6 @@ class OrderListView(ListView, LoginRequiredMixin):
     def get_queryset(self):
         return DeliveryOrder.objects.all()
 
-def order_detail(request, order_id):
-    order = get_object_or_404(DeliveryOrder, id=order_id)
-    tracking_info = OrderTracking.objects.filter(order=order)
-    return render(request, 'customers/order_detail.html', {'order': order, 'tracking_info': tracking_info})
-
-def track_order(request, tracking_number):
-    order = get_object_or_404(DeliveryOrder, tracking_number=tracking_number)
-    tracking_info = OrderTracking.objects.filter(order=order)
-    tracking_data = [{'status': t.status, 'location': t.location, 'timestamp': t.timestamp} for t in tracking_info]
-    m = folium.Map(location=[6.5244, 3.3792], zoom_start=13)
-    folium.Marker([6.5244, 3.3792], popup='My point').add_to(m)
-    return render(request, 'customers/map.html', {'map':m.show_in_browser()})
-
 class OrderListView(ListView, LoginRequiredMixin):
     models = DeliveryOrder
     context_object_name = 'orders'
@@ -106,12 +94,3 @@ class OrderListView(ListView, LoginRequiredMixin):
     
 
 
-def map_view(request):
-    cordinates = [6.9244, 3.3792]
-    m = folium.Map(location=cordinates, zoom_start=13)
-    folium.Marker(cordinates, popup='My point').add_to(m)
-    map_html = m._repr_html_()
-    context = {
-        'map': map_html,
-    }
-    return render(request, 'customers/map.html', context)

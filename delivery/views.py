@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import ReviewsForm
-from .models import Reviews
-from customers.models import Customer, DeliveryOrder
+from .models import Reviews, DeliveryOrder
+from customers.models import Customer
 from django.contrib import messages
 from customers.forms import OrderTrackingForm
+from django.views.generic import DetailView
+import folium
 #Create your views here.
 
 def home(request):
@@ -11,9 +13,10 @@ def home(request):
         form = OrderTrackingForm(request.POST)
         if form.is_valid():
             tracking_number = form.cleaned_data.get('tracking_number')
+            request.session['tracking_number'] = tracking_number
             order = DeliveryOrder.objects.filter(tracking_number=tracking_number).first()
             if order:
-                return redirect('map')
+                return render(request, 'delivery/deliveryorder_detail.html', {'order':order})
             else:
                 messages.error(request, f'There is no order with {tracking_number}')
     else:
@@ -70,3 +73,18 @@ def single(request):
     return render(request, 'delivery/single.html')
 
 
+class OrderDetailView(DetailView):
+    model = DeliveryOrder
+    context_object_name = 'order'
+    template_name = 'delivery/deliveryorder_detail.html'
+
+
+def map_view(request):
+    cordinates = [6.9244, 3.3792]
+    m = folium.Map(location=cordinates, zoom_start=13)
+    folium.Marker(cordinates, popup='My point').add_to(m)
+    map_html = m._repr_html_()
+    context = {
+        'map': map_html,
+    }
+    return render(request, 'customers/map.html', context)

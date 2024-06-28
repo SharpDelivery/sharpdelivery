@@ -27,7 +27,7 @@ SECRET_KEY = 'fdj bvayw985 bvwrhuiabva4w0 yr9vuer097re980-7430984]'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False).lower() == "true"
-#DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
  
